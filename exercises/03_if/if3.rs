@@ -2,17 +2,19 @@
 //
 // Execute `rustlings hint if3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
+///This code identify an animal to return its habitat, for this we make 2 if statement
+/// one that identify the string in arg and return a number in the indentifier (in rust we can initailize a var with a condition / code like here where we initalize it with the return of an if)
+/// the other that check the identifier and return the habitat as a string
 
 pub fn animal_habitat(animal: &str) -> &'static str {
     let identifier = if animal == "crab" {
         1
     } else if animal == "gopher" {
-        2.0
+        2
     } else if animal == "snake" {
         3
     } else {
-        "Unknown"
+        0
     };
 
     // DO NOT CHANGE THIS STATEMENT BELOW

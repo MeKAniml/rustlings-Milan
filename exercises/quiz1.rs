@@ -13,11 +13,20 @@
 //
 // No hints this time ;)
 
-// I AM NOT DONE
 
 // Put your function here!
-// fn calculate_price_of_apples {
 
+///As stated in the name, the price of apple change if you have more than 40 it's 1 , if not Z
+/// So to simplify atmost, we do a simple if that return the number by the define price if more than 40
+/// it's not the most easy to read and modify 
+fn calculate_price_of_apples (AppleNumber:i32) -> i32 {
+
+    if AppleNumber > 40 {
+        AppleNumber * 1
+    }else {
+        AppleNumber * 2
+    }
+}
 // Don't modify this function!
 #[test]
 fn verify_test() {
