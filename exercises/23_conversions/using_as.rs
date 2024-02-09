@@ -10,11 +10,12 @@
 // Execute `rustlings hint using_as` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
+///in this exercise, we are going to use the `as` operator to cast the result of the division to a `f64` type
+/// as the normal result would be not a `f64` type but a `f32` type as
 fn average(values: &[f64]) -> f64 {
     let total = values.iter().sum::<f64>();
-    total / values.len()
+    total / values.len() as f64
 }
 
 fn main() {
