@@ -11,7 +11,6 @@
 // Execute `rustlings hint iterators5` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 use std::collections::HashMap;
 
@@ -32,11 +31,17 @@ fn count_for(map: &HashMap<String, Progress>, value: Progress) -> usize {
     count
 }
 
+/// this function will serve as a helper function to count the number of exercises with a given progress
+/// it takes in a hashmap and a value of type Progress
+/// it returns the number of exercises with a given progress
+/// we will use the hashmap and filter the values of the hashmap and count the number of values that are equal to the given progress
+/// the |&&val| is a closure and will let us easily check if the value of the hasmap is equal to the arg value, we take a reference of a reference of val, as the iterator do a reference of the hasmap, so with only one & will still not have the value but still a reference of hashmap
 fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {
     // map is a hashmap with String keys and Progress values.
     // map = { "variables1": Complete, "from_str": None, ... }
 
     map.values().filter(|&&val| val == value).count()
+
 
 }
 
@@ -51,7 +56,10 @@ fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progres
     }
     count
 }
-
+///this function work the same as the two others to give progress of exercices, but this time we have a collection of hashmap, so we will use the iterator to go through the collection and then for each hashmap we will use the iterator to go through the values of the hashmap and count the number of values that are equal to the given progress
+/// we use the map method and not filter as we don't want to filter the values but to count them
+/// we use a closure to use the hashmap values, and then we reuse the count_iterator function we previously made
+/// the result is then summed and return
 fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
     // collection is a slice of hashmaps.
     // collection = [{ "variables1": Complete, "from_str": None, ... },
