@@ -7,7 +7,6 @@
 // Execute `rustlings hint traits5` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 pub trait SomeTrait {
     fn some_function(&self) -> bool {
@@ -30,7 +29,8 @@ impl SomeTrait for OtherStruct {}
 impl OtherTrait for OtherStruct {}
 
 // YOU MAY ONLY CHANGE THE NEXT LINE
-fn some_func(item: ??) -> bool {
+///as sometrait and othertrait are traits implemented by SomeStruct and OtherStruct, we can use the impl keyword to specify that the argument to some_func must implement both SomeTrait and OtherTrait and so we can call the functions some_function and other_function on it.
+fn some_func(item: impl SomeTrait + OtherTrait) -> bool {
     item.some_function() && item.other_function()
 }
 

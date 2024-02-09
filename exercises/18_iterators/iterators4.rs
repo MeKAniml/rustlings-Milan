@@ -3,7 +3,6 @@
 // Execute `rustlings hint iterators4` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 pub fn factorial(num: u64) -> u64 {
     // Complete this function to return the factorial of num
@@ -15,6 +14,23 @@ pub fn factorial(num: u64) -> u64 {
     // For an extra challenge, don't use:
     // - recursion
     // Execute `rustlings hint iterators4` for hints.
+    (1..=num).fold(1, |acc, x| acc * x)
+   
+    // 1..=num creates a range from 1 to num
+    // fold is a method that applies a function to each element of an iterator
+    // and accumulates the results
+    // the first argument to fold is the initial value of the accumulator
+    // the second argument is a closure that takes two arguments, the accumulator
+    // and the current value of the iterator, and returns the new value of the
+    // accumulator
+    // in this case, the closure multiplies the accumulator by the current value
+    // of the iterator
+    // the result is the factorial of num
+    // the type of the accumulator is u64, so the type of the result is also u64
+    // so we don't need to cast the result to u64
+    // the result is the last value of the accumulator
+    // so we don't need to use the return keyword
+
 }
 
 #[cfg(test)]

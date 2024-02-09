@@ -5,10 +5,12 @@
 // Execute `rustlings hint enums3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
-
+///the interesting part of this enum is that for move, we have a struct inside the enum, so we can use it as a struct, and we can use the struct as a tuple.
 enum Message {
-    // TODO: implement the message variant types based on their usage below
+    ChangeColor(u8, u8, u8),
+    Echo(String),
+    Move(Point),
+    Quit,
 }
 
 struct Point {
@@ -39,11 +41,19 @@ impl State {
     fn move_position(&mut self, p: Point) {
         self.position = p;
     }
-
+///the process function is a match expression, that will process the message and call the right function to process the message.
+/// A match expression let you compare a value against a series of patterns and then execute code based on which pattern matches.
+/// for this ecerise, we will use the match expression to process the different message variants and use the function implemented in state.
     fn process(&mut self, message: Message) {
         // TODO: create a match expression to process the different message variants
         // Remember: When passing a tuple as a function argument, you'll need extra parentheses:
         // fn function((t, u, p, l, e))
+        match message {
+            Message::ChangeColor(r, g, b) => self.change_color((r, g, b)),
+            Message::Quit => self.quit(),
+            Message::Echo(s) => self.echo(s),
+            Message::Move(p) => self.move_position(p),
+        }
     }
 }
 

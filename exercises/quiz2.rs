@@ -20,7 +20,6 @@
 //
 // No hints this time!
 
-// I AM NOT DONE
 
 pub enum Command {
     Uppercase,
@@ -32,11 +31,20 @@ mod my_module {
     use super::Command;
 
     // TODO: Complete the function signature!
-    pub fn transformer(input: ???) -> ??? {
+    ///In the test we see that the input is a vector of tuples, the first element is a string and the second one is a command based on the enum Command
+    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
         // TODO: Complete the output declaration!
-        let mut output: ??? = vec![];
+        //as the output is a vector of strings we can declare it as a vector of strings
+        let mut output: Vec<String>  = vec![];
+        //we iterate over the input vector of tuples (and we remember that iter let the input vector be immutable, so we can't change it, as we will transform it in outpu)
         for (string, command) in input.iter() {
-            // TODO: Complete the function body. You can do it!
+            //as we have different command, we will use a match expression to process the different command variants(as seen in previous exercises)
+            match command {
+                //as general, syntax is output.push as its the method to add in the vec collection, and for the append we use the string.clone() to avoid moving the string, then &"bar", the & is because we want a string and not a slice for the repeat method, and the *n to dereference the usize (as it's a borrow)
+                Command::Uppercase => output.push(string.to_uppercase()),
+                Command::Trim => output.push(string.trim().to_string()),
+                Command::Append(n) => output.push(string.clone() + &"bar".repeat(*n)),
+            }
         }
         output
     }
@@ -45,7 +53,8 @@ mod my_module {
 #[cfg(test)]
 mod tests {
     // TODO: What do we need to import to have `transformer` in scope?
-    use ???;
+    //the syntax is first super to go to the superior scope (outside of the module tests), then the module name, and then the function name of the wanted module
+    use super::my_module::transformer;
     use super::Command;
 
     #[test]

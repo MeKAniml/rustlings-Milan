@@ -5,7 +5,6 @@
 // Execute `rustlings hint move_semantics6` or use the `hint` watch subcommand
 // for a hint.
 
-// I AM NOT DONE
 ///on this code we can see a case of borrowing and lifetime.
 /// Get char using data is doing a borrowing of data var, so string uppercase is not allowed to borrow it even as a reference
 /// we swap for get char to reference data in the function, so string uppercase can use data with issue of borrowing.

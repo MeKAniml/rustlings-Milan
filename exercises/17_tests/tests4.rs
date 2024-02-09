@@ -5,7 +5,6 @@
 // Execute `rustlings hint tests4` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
 
 struct Rectangle {
     width: i32,
@@ -27,20 +26,27 @@ mod tests {
     use super::*;
 
     #[test]
+    
     fn correct_width_and_height() {
         // This test should check if the rectangle is the size that we pass into its constructor
         let rect = Rectangle::new(10, 20);
-        assert_eq!(???, 10); // check width
-        assert_eq!(???, 20); // check height
+        //we use assert_eq! that do a comparison between the expected value and the actual value as a test, as speicified before we wait for the width to be 10 and the height to be 20
+        assert_eq!(rect.width, 10); // check width
+        assert_eq!(rect.height, 20); // check height
     }
 
+    //as we can see in the function, a panic is expected when we try to create a rectangle with negative width or height, so we use the should_panic attribute to check if the panic is expected creating a rectangle with negative value
+    //panic! is a macro that is used to stop the program and print an error message to the console
     #[test]
+    #[should_panic]
     fn negative_width() {
         // This test should check if program panics when we try to create rectangle with negative width
         let _rect = Rectangle::new(-10, 10);
+       
     }
 
     #[test]
+    #[should_panic]
     fn negative_height() {
         // This test should check if program panics when we try to create rectangle with negative height
         let _rect = Rectangle::new(10, -10);

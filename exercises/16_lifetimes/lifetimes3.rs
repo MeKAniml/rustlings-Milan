@@ -5,11 +5,11 @@
 // Execute `rustlings hint lifetimes3` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
-
-struct Book {
-    author: &str,
-    title: &str,
+///we need to specify a lifetime for the reference to the string in the Book struct, as you can see
+/// in the main function name / title are created as String, referenced for create an instance of the book structure, so we need to specify a lifetime for the reference to the string in the Book struct
+struct Book<'a> {
+    author: &'a str,
+    title: &'a str,
 }
 
 fn main() {

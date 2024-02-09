@@ -6,14 +6,15 @@
 // Execute `rustlings hint generics2` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
-
-struct Wrapper {
-    value: u32,
+/// <T> is used to define a generic type. This means that the Wrapper struct can be used to wrap any type of value, not just u32.
+/// the <T> in rust is mean to be generic type parameter that permit us to be more flexible to the type of the value that we want to store in the Wrapper struct
+struct Wrapper<T> {
+    value: T,
 }
 
-impl Wrapper {
-    pub fn new(value: u32) -> Self {
+///we need to respecify the <T> after the impl keyword to specify that the implementation for the Wrapper struct will apply to any type of value
+impl<T> Wrapper<T> {
+    pub fn new(value: T) -> Self {
         Wrapper { value }
     }
 }
